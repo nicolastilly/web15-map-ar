@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Slides navigation</title>
+
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    </head>
+
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 28px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .swiper-slide p {
+            position: absolute;
+        }
+
+        .swiper-slide img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+
+        header {
+            width: 100%;
+            height: 60px;
+            background: #1a1203;
+            position: absolute;
+            z-index: 10;
+            display: grid;
+        }
+
+        header p {
+            color: white;
+            margin: 0;
+            justify-self: center;
+            align-self: center;
+        }
+    </style>
+
+    <body>
+
+        <header>
+            <p>Nom du projet</p>
+        </header>
+
+        <!-- Swiper -->
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <p>Titre</p>
+                    <img src="images/map01.jpg" alt="" srcset="">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="images/map02.png" alt="" srcset="">
+                </div>
+
+                <div class="swiper-slide">
+                    <img src="images/map03.png" alt="" srcset="">
+                </div>
+
+            </div>
+
+            <!-- If we need scrollbar -->
+            <div class="swiper-scrollbar"></div>
+        </div>
+
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            const swiper = new Swiper('.swiper', {
+                // Optional parameters
+                direction: 'horizontal',
+                loop: true,
+
+                // And if we need scrollbar
+                scrollbar: {
+                    el: '.swiper-scrollbar',
+                },
+            });
+        </script>
+
+    </body>
+
+</html>
