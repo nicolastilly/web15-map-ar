@@ -9,12 +9,15 @@
 
 ## Cours du 22 octobre 2024
 
-### Drag & drop
+### Drag & drop 1
 - Déplacer en drag & drop la carte sur l'axe x : exemple dans le ficher `dragndrop01.html`
+![gif](images/dragndrop01.gif)
+
+### Drag & drop 2
 - Déplacer la carte en drag & drop sur tous les axes `dragndrop02.html`
 - [x] Empêcher que la carte sorte des limites de l'écran
+![gif](images/dragndrop02.gif)
 
-| ![gif](images/dragndrop01.gif)  | ![gif](images/dragndrop01.gif) |
 
 ### Slides
 - Swiper dans les parties de la carte `slides01.html`
