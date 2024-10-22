@@ -32,7 +32,16 @@
             .carte {
                 width: 600%;
                 height: auto;
+                position: absolute;
+                cursor: move;
+            }
 
+            .container {
+                position: relative;
+                width: 100%;
+                height: calc(100vh - 60px);
+                /* Hauteur totale moins header */
+                overflow: hidden;
             }
         </style>
     </head>
@@ -51,9 +60,47 @@
 
 
         <script>
-            var elem = document.querySelector('.carte');
-            var draggie = new Draggabilly(elem, {
-                //containment: '.container'
+            document.addEventListener('DOMContentLoaded', function () {
+                var elem = document.querySelector('.carte');
+                var container = document.querySelector('.container');
+
+                // Initialiser Draggabilly
+                var draggie = new Draggabilly(elem, {
+                    containment: '.container'
+                });
+
+                // Variables pour stocker les limites
+                let minX, maxX, minY, maxY;
+
+                // Fonction pour calculer les limites
+                function calculateBounds() {
+                    const containerRect = container.getBoundingClientRect();
+                    const elemRect = elem.getBoundingClientRect();
+
+                    minX = containerRect.width - elemRect.width;
+                    maxX = 0;
+                    minY = containerRect.height - elemRect.height;
+                    maxY = 0;
+                }
+
+                // Calculer les limites initiales
+                calculateBounds();
+
+                // Mettre à jour la position pendant le déplacement
+                draggie.on('dragMove', function (event, pointer, moveVector) {
+                    var position = draggie.position;
+
+                    // Limiter le déplacement horizontal
+                    if (position.x < minX) draggie.setPosition(minX, position.y);
+                    if (position.x > maxX) draggie.setPosition(maxX, position.y);
+
+                    // Limiter le déplacement vertical
+                    if (position.y < minY) draggie.setPosition(position.x, minY);
+                    if (position.y > maxY) draggie.setPosition(position.x, maxY);
+                });
+
+                // Recalculer les limites lors du redimensionnement de la fenêtre
+                window.addEventListener('resize', calculateBounds);
             });
         </script>
 
