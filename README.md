@@ -12,7 +12,7 @@
 ### Drag & drop 1
 - Déplacer en drag & drop la carte sur l'axe x : exemple dans le ficher `dragndrop01.html`
  
-![gif](images/dragndrop01.gif)
+![gif](images/dragndrop1.gif)
 
 ### Drag & drop 2
 - Déplacer la carte en drag & drop sur tous les axes `dragndrop02.html`
