@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Drag & Drop 02</title>
         <script src="https://unpkg.com/draggabilly@3/dist/draggabilly.pkgd.min.js"></script>
-
         <style>
             body {
                 margin: 0;
@@ -19,91 +18,74 @@
             header {
                 width: 100%;
                 height: 60px;
-                background: black;
-                position: relative;
+                background: #1a1203;
+                position: absolute;
                 z-index: 10;
+                display: grid;
             }
 
             header p {
                 color: white;
                 margin: 0;
-            }
-
-            .carte {
-                width: 600%;
-                height: auto;
-                position: absolute;
-                cursor: move;
+                justify-self: center;
+                align-self: center;
             }
 
             .container {
                 position: relative;
                 width: 100%;
-                height: calc(100vh - 60px);
-                /* Hauteur totale moins header */
+                height: 100vh;
                 overflow: hidden;
+            }
+
+            .carte {
+                width: 600%;
+                height: auto;
+                cursor: move;
             }
         </style>
     </head>
 
     <body>
-
-
         <header>
-            <p>menu</p>
+            <p>logo</p>
         </header>
 
         <div class="container">
             <img class="carte" src="images/carte.jpg" alt="" srcset="">
         </div>
 
-
-
         <script>
-            document.addEventListener('DOMContentLoaded', function () {
-                var elem = document.querySelector('.carte');
-                var container = document.querySelector('.container');
+            var elem = document.querySelector('.carte');
+            var draggie = new Draggabilly(elem);
 
-                // Initialiser Draggabilly
-                var draggie = new Draggabilly(elem, {
-                    containment: '.container'
-                });
+            // Gérer les limites pendant le déplacement
+            draggie.on('dragMove', function (event, pointer, moveVector) {
+                var position = draggie.position;
+                var containerRect = document.querySelector('.container').getBoundingClientRect();
+                var elemRect = elem.getBoundingClientRect();
 
-                // Variables pour stocker les limites
-                let minX, maxX, minY, maxY;
+                // Calculer les limites
+                var minX = containerRect.width - elemRect.width;
+                var maxX = 0;
+                var minY = containerRect.height - elemRect.height;
+                var maxY = 0;
 
-                // Fonction pour calculer les limites
-                function calculateBounds() {
-                    const containerRect = container.getBoundingClientRect();
-                    const elemRect = elem.getBoundingClientRect();
-
-                    minX = containerRect.width - elemRect.width;
-                    maxX = 0;
-                    minY = containerRect.height - elemRect.height;
-                    maxY = 0;
+                // Appliquer les limites
+                if (position.x < minX) {
+                    draggie.position.x = minX;
                 }
-
-                // Calculer les limites initiales
-                calculateBounds();
-
-                // Mettre à jour la position pendant le déplacement
-                draggie.on('dragMove', function (event, pointer, moveVector) {
-                    var position = draggie.position;
-
-                    // Limiter le déplacement horizontal
-                    if (position.x < minX) draggie.setPosition(minX, position.y);
-                    if (position.x > maxX) draggie.setPosition(maxX, position.y);
-
-                    // Limiter le déplacement vertical
-                    if (position.y < minY) draggie.setPosition(position.x, minY);
-                    if (position.y > maxY) draggie.setPosition(position.x, maxY);
-                });
-
-                // Recalculer les limites lors du redimensionnement de la fenêtre
-                window.addEventListener('resize', calculateBounds);
+                if (position.x > maxX) {
+                    draggie.position.x = maxX;
+                }
+                if (position.y < minY) {
+                    draggie.position.y = minY;
+                }
+                if (position.y > maxY) {
+                    draggie.position.y = maxY;
+                }
             });
         </script>
-
     </body>
 
 </html>
