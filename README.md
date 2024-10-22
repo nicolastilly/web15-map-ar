@@ -16,4 +16,4 @@
 - [ ] Améliorer la zone de contrôle des bords de la carte (par rapport à la taille de l'écran)
 
 ### Slides
-- Swiper dans les parties de la carte
+- Swiper dans les parties de la carte `slides01.html`
