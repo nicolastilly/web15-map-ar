@@ -37,4 +37,4 @@ Utilisation de la librairie [MindAR](https://hiukim.github.io/mind-ar-js-doc/). 
 
 Image cible
 
-![image](images/AR/tronc.jpg)
+![image](images/AR/chene.jpg)
