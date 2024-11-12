@@ -22,3 +22,7 @@
 
 ### Slides
 - Swiper dans les parties de la carte `slides01.html`
+
+--
+
+## Cours du 12 et 15 novembre
