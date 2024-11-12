@@ -36,4 +36,5 @@ Utilisation de la librairie [MindAR](https://hiukim.github.io/mind-ar-js-doc/). 
 ### Démo personnalisée avec une seule cible
 
 Image cible
-![gif](images/AR/tronc.jpg)
+
+![image](images/AR/tronc.jpg)
