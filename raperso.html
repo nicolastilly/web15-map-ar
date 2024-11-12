@@ -11,20 +11,19 @@
 
     <body>
 
-        <a-scene
-            mindar-image="imageTargetSrc: https://github.com/nicolastilly/web15-map-ar/blob/main/images/AR/tronc.mind;"
-            color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+        <a-scene mindar-image="imageTargetSrc: images/AR/tronc.mind;" color-space="sRGB"
+            renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
             device-orientation-permission-ui="enabled: false">
             <a-assets>
 
-                <a-asset-item id="avatarModel" src="images/AR/tronc.gltf"></a-asset-item>
+                <a-asset-item id="avatarModel" src="images/AR/cube.gltf"></a-asset-item>
             </a-assets>
 
             <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
 
             <a-entity mindar-image-target="targetIndex: 0">
 
-                <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.005 0.005 0.005" src="#avatarModel"
+                <a-gltf-model rotation="0 0 0 " position="0 0 0.1" scale="0.5 0.5 0.5" src="#avatarModel"
                     animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate">
             </a-entity>
         </a-scene>
