@@ -32,3 +32,8 @@ Utilisation de la librairie [MindAR](https://hiukim.github.io/mind-ar-js-doc/). 
 - Démo basic provenant de MinAR
 - Démo personnalisée avec une seule cible
 - Démo personnalisée avec plusieurs cibles détectées les unes après les autres
+
+### Démo personnalisée avec une seule cible
+
+Image cible
+![gif](images/AR/tronc.jpg)
