@@ -23,6 +23,12 @@
 ### Slides
 - Swiper dans les parties de la carte `slides01.html`
 
---
+![gif](images/swipe.gif)
+
+---
 
 ## Cours du 12 et 15 novembre
+Utilisation de la librairie [MindAR](https://hiukim.github.io/mind-ar-js-doc/). Les exercices se composent de trois étapes :
+- Démo basic provenant de MinAR
+- Démo personnalisée avec une seule cible
+- Démo personnalisée avec plusieurs cibles détectées les unes après les autres
