@@ -42,13 +42,14 @@ L'animation peut aussi être réalisée avec la propriété `animation` comme da
 
 ### Démo personnalisée avec une seule cible
 
-![demos](images/AR/demos-ar.gif)
 
 Image cible
 
 ![image](images/AR/chene.jpg)
 
 ### Démo personnalisée avec plusieurs cibles
+
+![demos](images/AR/demos-ar.gif)
 
 Image cible 01 (affiche l'objet 3D étoile)
 
