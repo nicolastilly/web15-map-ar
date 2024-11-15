@@ -38,3 +38,11 @@ Utilisation de la librairie [MindAR](https://hiukim.github.io/mind-ar-js-doc/). 
 Image cible
 
 ![image](images/AR/chene.jpg)
+
+### Démo personnalisée avec plusieurs cibles
+
+Images cibles
+
+![image01](images/AR/cible01.jpg)
+
+![image02](images/AR/cible02.jpg)
