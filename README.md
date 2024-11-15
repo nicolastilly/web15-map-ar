@@ -41,8 +41,10 @@ Image cible
 
 ### Démo personnalisée avec plusieurs cibles
 
-Images cibles
+Image cible 01
 
 ![image01](images/AR/cible01.jpg)
+
+Image cible 02
 
 ![image02](images/AR/cible02.jpg)
