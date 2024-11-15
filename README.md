@@ -1,6 +1,6 @@
 # 3 Web 15 mois cours creative coding avancé
 
-## Le cours se compose en 3 étapes :
+## Le cours se compose de 3 étapes :
 1. Navigation Drag & Drop et Slides de la carte
 2. Réalité augmentée
 3. Prototype final
