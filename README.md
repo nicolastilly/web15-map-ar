@@ -5,6 +5,14 @@
 2. Réalité augmentée
 3. Prototype final
 
+## Liens
+
+- [Mind AR](https://hiukim.github.io/mind-ar-js-doc/)
+
+- [Image Targets Compiler](https://hiukim.github.io/mind-ar-js-doc/tools/compile/)
+
+- [Visualiser un fichier gtltf en ligne](https://gltf-viewer.donmccurdy.com/)
+
 ---
 
 ## Cours du 22 octobre 2024 - Navigation avec la carte
@@ -29,11 +37,11 @@
 
 ## Cours du 12 et 15 novembre - Utilisation de la réalité augmentée
 Pour travailler avec la réalité augmentée nous allons utiliser la librairie [MindAR](https://hiukim.github.io/mind-ar-js-doc/). Les exercices se composent de trois étapes :
-- Démo basic provenant de MinAR
+- Démo basic provenant de MindAR
 - Démo personnalisée avec une seule cible
 - Démo personnalisée avec plusieurs cibles détectées les unes après les autres
 
-##### L'animation
+##### L'animation avec Mind AR
 
 La propriété `animation-mixer` sert à jouer l'animation qui est intégrée au fichier 3D au format .gltf. Cette animation est réalisée au préalable dans le logiciel Blender par exemple.
 
@@ -43,18 +51,18 @@ L'animation peut aussi être réalisée avec la propriété `animation` comme da
 ### Démo personnalisée avec une seule cible
 
 
-Image cible
-
-![image](images/AR/chene.jpg)
+![image cible](images/AR/chene.jpg)
+*image cible*
 
 ### Démo personnalisée avec plusieurs cibles
 
-![demos](images/AR/demos-ar.gif)
+![demos](images/AR/demo.gif)
+*Démo des deux cibles*
 
-Image cible 01 (affiche l'objet 3D étoile)
 
 ![image01](images/AR/cible01.jpg)
+*image cible01 qui affiche l'objet 3D étoile*
 
-Image cible 02 (affiche l'objet 3D pyramide)
 
 ![image02](images/AR/cible02.jpg)
+*image cible02 qui affiche l'objet 3D pyramide*
