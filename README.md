@@ -41,10 +41,10 @@ Image cible
 
 ### Démo personnalisée avec plusieurs cibles
 
-Image cible 01
+Image cible 01 (affiche l'objet 3D étoile)
 
 ![image01](images/AR/cible01.jpg)
 
-Image cible 02
+Image cible 02 (affiche l'objet 3D pyramide)
 
 ![image02](images/AR/cible02.jpg)
