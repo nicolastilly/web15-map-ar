@@ -41,6 +41,11 @@ Image cible
 
 ### Démo personnalisée avec plusieurs cibles
 
+La propriété `animation-mixer` sert à jouer l'animation qui est intégrée au fichier 3D au format .gltf. Cette animation est réalisée au préalable avec le logiciel Blender par exemple.
+
+L'animation peut aussi être réalisée avec la propriété `animation` comme dans l'exemple basic :
+`animation="property: position; to: 0 0.1 0.1; dur: 1000; easing: easeInOutQuad; loop: true; dir: alternate"`
+
 Image cible 01 (affiche l'objet 3D étoile)
 
 ![image01](images/AR/cible01.jpg)
