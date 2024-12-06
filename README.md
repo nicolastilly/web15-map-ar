@@ -85,3 +85,7 @@ Scénario : l'utilisateur·rice se trouve dans un jardin. Il faut trouver 3 plan
 
 ![image03](proto-final/images/cible-plante03.png)
 *image cible3*
+
+**Ressources :**
+[Animate.css](https://animate.style/)
+[BBC Sound Effects](https://sound-effects.bbcrewind.co.uk/)
