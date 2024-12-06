@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Proto final</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+
+        <style>
+            .swiper {
+                width: 100%;
+                height: 100%;
+                background: url(images/bg-plantes.png) no-repeat center center fixed;
+                background-size: cover;
+            }
+
+            .swiper-slide {
+                text-align: center;
+                font-size: 18px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            :root {
+                --swiper-navigation-color: rgb(0, 0, 0);
+                --swiper-pagination-color: rgb(0, 0, 0);
+            }
+
+            /* .swiper-slide img {
+                display: block;
+                width: 80%;
+                height: 40%;
+                object-fit: cover;
+            } */
+        </style>
+
+    </head>
+
+    <body>
+
+
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <div class="parent">
+                        <div class="div1"> <img src="images/plante1.png" alt=""></div>
+                        <div class="div2">
+                            <p class="infos">Trouve la cible qui se trouve autour de la plante. Ensuite, cible l’image
+                                avec la caméra
+                                pour découvrir une surprise !</p>
+                        </div>
+                        <div class="div3">
+                            <a href="#" class="myButton"> Voir en RA</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="swiper-slide">
+                    <div class="parent">
+                        <div class="div1"> <img src="images/plante2.png" alt=""></div>
+                        <div class="div2">
+                            <p class="infos">Trouve la cible qui se trouve autour de la plante. Ensuite, cible l’image
+                                avec la caméra
+                                pour découvrir une surprise !</p>
+                        </div>
+                        <div class="div3">
+                            <a href="#" class="myButton"> Voir en RA</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="parent">
+                        <div class="div1"> <img src="images/plante3.png" alt=""></div>
+                        <div class="div2">
+                            <p class="infos">Trouve la cible qui se trouve autour de la plante. Ensuite, cible l’image
+                                avec la caméra
+                                pour découvrir une surprise !</p>
+                        </div>
+                        <div class="div3">
+                            <a href="#" class="myButton"> Voir en RA</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+
+        <div class="menu">
+            <div class="menu1">
+                <a href="index.html"> <img src="images/Home.svg" alt=""></a>
+            </div>
+            <div class="menu2">
+                <img src="images/Map2.svg" alt="">
+            </div>
+            <div class="menu3">
+                <img src="images/Info.svg" alt="">
+            </div>
+        </div>
+
+
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <!-- Initialize Swiper -->
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
+
+    </body>
+
+</html>

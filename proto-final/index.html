@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Proto final</title>
+        <link rel="stylesheet" href="style.css">
+        <!-- Link Swiper's CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+        <style>
+            body {
+                background: url(images/bg-home.png) no-repeat center center fixed;
+                background-size: cover;
+                width: 100%;
+                height: 100vh;
+                display: grid;
+                place-items: center;
+            }
+
+            .swiper {
+                margin: 100px auto;
+                width: 320px;
+                height: 240px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            .swiper-slide {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 22px;
+                font-weight: bold;
+                color: #fff;
+                border-radius: 22px;
+                text-align: center;
+                background-color: #ad783f;
+            }
+
+            /* .swiper-slide:nth-child(1n) {
+                background-color: rgb(34, 131, 7);
+            }
+
+            .swiper-slide:nth-child(2n) {
+                background-color: rgb(0, 140, 255);
+            }
+
+            .swiper-slide:nth-child(3n) {
+                background-color: rgb(10, 184, 111);
+            }
+
+            .swiper-slide:nth-child(4n) {
+                background-color: rgb(211, 122, 7);
+            } */
+        </style>
+    </head>
+
+    <body>
+
+        <div class="swiper mySwiper2">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">1<br>Parcourez le jardin !
+                </div>
+                <div class="swiper-slide">2<br>Trouvez la plante !</div>
+                <div class="swiper-slide">3<br>Cherchez la cible !</div>
+                <div class="swiper-slide">4<br>Et découvrez la surprise en RA !</div>
+            </div>
+        </div>
+
+
+        <div class="menu">
+            <div class="menu1">
+                <img src="images/Home2.svg" alt="">
+            </div>
+            <div class="menu2">
+                <a href="plantes-ar.html"><img src="images/Map.svg" alt=""></a>
+            </div>
+            <div class="menu3">
+                <img src="images/Info.svg" alt="">
+            </div>
+        </div>
+
+
+        <!-- Swiper JS -->
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+        <script>
+            var swiper2 = new Swiper(".mySwiper2", {
+                grabCursor: true,
+                effect: "creative",
+                creativeEffect: {
+                    prev: {
+                        shadow: true,
+                        translate: ["-120%", 0, -500],
+                    },
+                    next: {
+                        shadow: true,
+                        translate: ["120%", 0, -500],
+                    },
+                },
+            });
+        </script>
+
+    </body>
+
+</html>
