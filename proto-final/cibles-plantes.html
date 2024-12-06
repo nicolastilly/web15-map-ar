@@ -12,15 +12,21 @@
 
     <body>
 
+        <!-- Ajout d'un overlay pour le premier clic -->
+        <div id="startButton"
+            style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; display: flex; justify-content: center; align-items: center; color: white; font-size: 24px; cursor: pointer; font-family: Arial, Helvetica, sans-serif;">
+            Appuyez pour écouter le son
+        </div>
+
         <a-scene mindar-image="imageTargetSrc: images/cibles.mind; filterMinCF:0.0001; filterBeta: 0.1;"
             color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
             device-orientation-permission-ui="enabled: false">
 
             <a-assets>
                 <!-- les fichiers son -->
-                <audio id="sound-1" src="sons/01.mp3" preload="auto"></audio>
-                <audio id="sound-2" src="sons/02.mp3" preload="auto"></audio>
-                <audio id="sound-3" src="sons/03.mp3" preload="auto"></audio>
+                <audio id="sound-1" src="sons/01.mp3" preload="auto" playsinline></audio>
+                <audio id="sound-2" src="sons/02.mp3" preload="auto" playsinline></audio>
+                <audio id="sound-3" src="sons/03.mp3" preload="auto" playsinline></audio>
 
             </a-assets>
 
@@ -35,8 +41,35 @@
 
 
         <script>
+            let audioContext;
+            let soundsInitialized = false;
+
+            // Fonction pour initialiser l'audio
+            function initializeAudio() {
+                if (!soundsInitialized) {
+                    audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                    // Charger et initialiser silencieusement tous les sons
+                    document.querySelectorAll('audio').forEach(audio => {
+                        audio.load();
+                        // Jouer et mettre immédiatement en pause pour initialiser
+                        audio.volume = 0;
+                        audio.play().then(() => {
+                            audio.pause();
+                            audio.currentTime = 0;
+                            audio.volume = 1;
+                        }).catch(console.error);
+                    });
+                    soundsInitialized = true;
+                }
+            }
+
+            // Gestionnaire du bouton de démarrage
+            document.getElementById('startButton').addEventListener('click', function () {
+                initializeAudio();
+                this.style.display = 'none';
+            });
+
             document.addEventListener("DOMContentLoaded", () => {
-                // Configuration des cibles et sons
                 const targets = [
                     {
                         element: document.querySelector("#target-0"),
@@ -55,14 +88,12 @@
                     }
                 ];
 
-                // Configuration des événements pour chaque cible
                 targets.forEach((target, index) => {
                     if (target.element && target.sound) {
-                        // Événement quand la cible est trouvée
                         target.element.addEventListener("targetFound", () => {
                             console.log(`Cible ${index + 1} détectée !`);
-                            if (!target.isPlaying) {
-                                // Arrêter tous les autres sons en cours
+                            if (!target.isPlaying && soundsInitialized) {
+                                // Arrêter tous les autres sons
                                 targets.forEach(otherTarget => {
                                     if (otherTarget !== target) {
                                         otherTarget.sound.pause();
@@ -71,18 +102,20 @@
                                     }
                                 });
 
-                                // Jouer le son de la cible détectée
+                                // Jouer le son avec gestion des erreurs
                                 target.sound.play()
                                     .then(() => {
                                         target.isPlaying = true;
                                     })
                                     .catch(error => {
                                         console.log(`Erreur lors de la lecture du son ${index + 1}:`, error);
+                                        // Tentative de réinitialisation de l'audio en cas d'erreur
+                                        target.sound.load();
                                     });
                             }
                         });
 
-                        // Événement quand la cible est perdue
+                        // Reste des événements inchangé
                         target.element.addEventListener("targetLost", () => {
                             console.log(`Cible ${index + 1} perdue !`);
                             target.sound.pause();
@@ -90,12 +123,9 @@
                             target.isPlaying = false;
                         });
 
-                        // Événement quand le son se termine
                         target.sound.addEventListener("ended", () => {
                             target.isPlaying = false;
                         });
-                    } else {
-                        console.error(`Impossible de trouver la cible ${index + 1} ou son élément audio`);
                     }
                 });
             });
