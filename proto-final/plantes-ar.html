@@ -9,6 +9,7 @@
         <!-- Link Swiper's CSS -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
         <style>
             .swiper {
@@ -30,13 +31,6 @@
                 --swiper-navigation-color: rgb(0, 0, 0);
                 --swiper-pagination-color: rgb(0, 0, 0);
             }
-
-            /* .swiper-slide img {
-                display: block;
-                width: 80%;
-                height: 40%;
-                object-fit: cover;
-            } */
         </style>
 
     </head>
@@ -55,7 +49,7 @@
                                 pour découvrir une surprise !</p>
                         </div>
                         <div class="div3">
-                            <a href="#" class="myButton"> Voir en RA</a>
+                            <a href="cibles-plantes.html" class="myButton"> Voir en RA</a>
                         </div>
                     </div>
 
@@ -69,7 +63,7 @@
                                 pour découvrir une surprise !</p>
                         </div>
                         <div class="div3">
-                            <a href="#" class="myButton"> Voir en RA</a>
+                            <a href="cibles-plantes.html" class="myButton"> Voir en RA</a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +76,7 @@
                                 pour découvrir une surprise !</p>
                         </div>
                         <div class="div3">
-                            <a href="#" class="myButton"> Voir en RA</a>
+                            <a href="cibles-plantes.html" class="myButton"> Voir en RA</a>
                         </div>
                     </div>
                 </div>
@@ -97,10 +91,10 @@
                 <a href="index.html"> <img src="images/Home.svg" alt=""></a>
             </div>
             <div class="menu2">
-                <img src="images/Map2.svg" alt="">
+                <a href="plantes-ar.html"> <img src="images/Map2.svg" alt=""></a>
             </div>
             <div class="menu3">
-                <img src="images/Info.svg" alt="">
+                <a href="info.html"> <img src="images/Info.svg" alt=""></a>
             </div>
         </div>
 
@@ -112,10 +106,33 @@
         <!-- Initialize Swiper -->
         <script>
             var swiper = new Swiper(".mySwiper", {
+                loop: true,
                 navigation: {
                     nextEl: ".swiper-button-next",
                     prevEl: ".swiper-button-prev",
                 },
+                on: {
+                    slideChangeTransitionStart: function () {
+
+                        document.querySelectorAll('.div1').forEach(div => {
+                            div.classList.remove('animate__animated', 'animate__bounce');
+                        });
+                    },
+                    slideChangeTransitionEnd: function () {
+                        // Ajouter les classes d'animation uniquement à l'image active
+                        const activeSlide = document.querySelector('.swiper-slide-active .div1');
+                        if (activeSlide) {
+                            activeSlide.classList.add('animate__animated', 'animate__bounce');
+                        }
+                    },
+                    init: function () {
+                        // Animer la première slide au chargement initial
+                        const firstSlide = document.querySelector('.swiper-slide-active .div1');
+                        if (firstSlide) {
+                            firstSlide.classList.add('animate__animated', 'animate__bounce');
+                        }
+                    }
+                }
             });
         </script>
 

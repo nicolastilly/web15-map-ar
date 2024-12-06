@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Cibles RA plantes</title>
+        <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.0.0/dist/aframe-extras.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+    </head>
+
+    <body>
+
+        <a-scene mindar-image="imageTargetSrc: images/cibles.mind; filterMinCF:0.0001; filterBeta: 0.1;"
+            color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+            device-orientation-permission-ui="enabled: false">
+
+            <a-assets>
+                <!-- les fichiers son -->
+                <audio id="sound-1" src="sons/01.mp3" preload="auto"></audio>
+                <audio id="sound-2" src="sons/02.mp3" preload="auto"></audio>
+                <audio id="sound-3" src="sons/03.mp3" preload="auto"></audio>
+
+            </a-assets>
+
+            <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+
+            <a-entity id="target-0" mindar-image-target="targetIndex: 0">
+                <a-entity id="target-1" mindar-image-target="targetIndex: 1"></a-entity>
+                <a-entity id="target-2" mindar-image-target="targetIndex: 2"></a-entity>
+
+        </a-scene>
+
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                // Configuration des cibles et sons
+                const targets = [
+                    {
+                        element: document.querySelector("#target-0"),
+                        sound: document.querySelector("#sound-1"),
+                        isPlaying: false
+                    },
+                    {
+                        element: document.querySelector("#target-1"),
+                        sound: document.querySelector("#sound-2"),
+                        isPlaying: false
+                    },
+                    {
+                        element: document.querySelector("#target-2"),
+                        sound: document.querySelector("#sound-3"),
+                        isPlaying: false
+                    }
+                ];
+
+                // Configuration des événements pour chaque cible
+                targets.forEach((target, index) => {
+                    if (target.element && target.sound) {
+                        // Événement quand la cible est trouvée
+                        target.element.addEventListener("targetFound", () => {
+                            console.log(`Cible ${index + 1} détectée !`);
+                            if (!target.isPlaying) {
+                                // Arrêter tous les autres sons en cours
+                                targets.forEach(otherTarget => {
+                                    if (otherTarget !== target) {
+                                        otherTarget.sound.pause();
+                                        otherTarget.sound.currentTime = 0;
+                                        otherTarget.isPlaying = false;
+                                    }
+                                });
+
+                                // Jouer le son de la cible détectée
+                                target.sound.play()
+                                    .then(() => {
+                                        target.isPlaying = true;
+                                    })
+                                    .catch(error => {
+                                        console.log(`Erreur lors de la lecture du son ${index + 1}:`, error);
+                                    });
+                            }
+                        });
+
+                        // Événement quand la cible est perdue
+                        target.element.addEventListener("targetLost", () => {
+                            console.log(`Cible ${index + 1} perdue !`);
+                            target.sound.pause();
+                            target.sound.currentTime = 0;
+                            target.isPlaying = false;
+                        });
+
+                        // Événement quand le son se termine
+                        target.sound.addEventListener("ended", () => {
+                            target.isPlaying = false;
+                        });
+                    } else {
+                        console.error(`Impossible de trouver la cible ${index + 1} ou son élément audio`);
+                    }
+                });
+            });
+        </script>
+
+    </body>
+
+</html>
