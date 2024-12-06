@@ -66,3 +66,20 @@ L'animation peut aussi être réalisée avec la propriété `animation` comme da
 
 ![image02](images/AR/cible02.jpg)
 *image cible02 qui affiche l'objet 3D pyramide*
+
+---
+
+## Prototype final
+
+Le prototype final se compose de 3 pages : une home (la carte), les détails des cibles (nav swiper) et une page info (utilisation).
+
+Scénario : l'utilisateur·rice se trouve dans un jardin. Il faut trouver 3 plantes dans ce jardin. Une fois trouvée, une cible se trouve à côté (une petite pancarte) qu'il faut scanner avec le smartphone. Une fois scannée, la cible joue un son.
+
+![image01](proto-final/images/cible-plante01.png)
+*image cible1*
+
+![image02](proto-final/images/cible-plante02.png)
+*image cible2*
+
+![image03](proto-final/images/cible-plante03.png)
+*image cible3*
