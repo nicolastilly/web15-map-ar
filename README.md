@@ -73,6 +73,8 @@ L'animation peut aussi être réalisée avec la propriété `animation` comme da
 
 Le prototype final se compose de 3 pages : une home (la carte), les détails des cibles (nav swiper) et une page info (utilisation).
 
+![image01](proto-final/images/app-demo.gif)
+
 Scénario : l'utilisateur·rice se trouve dans un jardin. Il faut trouver 3 plantes dans ce jardin. Une fois trouvée, une cible se trouve à côté (une petite pancarte) qu'il faut scanner avec le smartphone. Une fois scannée, la cible joue un son.
 
 ![image01](proto-final/images/cible-plante01.png)
